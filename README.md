@@ -1,44 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Requisitos
 
-## Getting Started
+- Node.js instalado.
+- Dependencias instaladas con `npm install`.
 
-First, run the development server:
+## Desarrollo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Esta aplicación usa Next.js para el frontend y JSON Server como API local. El frontend espera encontrar la API en `http://localhost:3001`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Opción recomendada: iniciar todo junto
 
-To run the Next.js frontend and JSON Server together, use:
+Desde la raíz del proyecto, ejecuta:
 
 ```bash
+npm install
 npm run dev:all
 ```
 
-The JSON API is available at [http://localhost:3001](http://localhost:3001).
+Este comando inicia ambos procesos:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Frontend Next.js: [http://localhost:3000](http://localhost:3000)
+- JSON Server: [http://localhost:3001](http://localhost:3001)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abre [http://localhost:3000](http://localhost:3000) en el navegador. Los datos de clientes y direcciones se guardan en `db.json`.
 
-## Learn More
+### Iniciar cada servicio por separado
 
-To learn more about Next.js, take a look at the following resources:
+Si prefieres usar terminales independientes, abre dos terminales en la raíz del proyecto.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+En la primera, inicia el frontend:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run dev
+```
 
-## Deploy on Vercel
+En la segunda, inicia JSON Server:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run dev:json
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Luego visita [http://localhost:3000](http://localhost:3000). Ambos servicios deben estar activos para que el directorio de clientes funcione correctamente.
+
+Para detener los servicios, presiona `Ctrl+C` en la terminal o terminales donde estén ejecutándose.
+
+## Otros comandos
+
+```bash
+npm run lint   # Ejecuta ESLint
+npm run build  # Genera la compilación de producción
+npm start      # Inicia la aplicación compilada
+```
